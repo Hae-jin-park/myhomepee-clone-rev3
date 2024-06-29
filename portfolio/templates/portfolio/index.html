@@ -1,0 +1,8 @@
+{% extends 'portfolio/layout.html'%}
+
+{% block content %}
+<div class="left-sidebar">{%include 'left_bar.html'%}</div>
+  {% for portfolio in pp_list %}
+  {% include "portfolio/_pp_card.html" %}
+  {% endfor %}
+{% endblock %}
