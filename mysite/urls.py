@@ -28,6 +28,7 @@ urlpatterns = [
     path(route="introduction/", view=include("introduction.urls")),
     path(route="accounts/", view=include("accounts.urls")),
     path(route="", view=include("portfolio.urls")),
+    path(route="", view=include("blog.urls")),
     
 ]
 
