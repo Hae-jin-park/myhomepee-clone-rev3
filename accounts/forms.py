@@ -12,9 +12,9 @@ class SignupForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         fields = ["username", "email", "first_name", "last_name"]
-    
+
     def clean_email(self):
-        email = self.cleaned_data.get('email')
+        email = self.cleaned_data.get("email")
         if email:
             qs = User.objects.filter(email=email)
             if qs.exists():

@@ -16,7 +16,7 @@ def signup(request):
     if request.method == "POST":
         form = SignupForm(request.POST)
         if form.is_valid():
-            signed_user=form.save()
+            signed_user = form.save()
             auth_login(request, signed_user)
             messages.success(request, "회원가입을 환영합니다.")
             next_url = request.GET.get("next", "/")

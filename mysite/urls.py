@@ -17,21 +17,23 @@ Including another URLconf
 
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", login_required(TemplateView.as_view(template_name="root.html")), name="root"),
+    path(
+        "", login_required(TemplateView.as_view(template_name="root.html")), name="root"
+    ),
     path(route="introduction/", view=include("introduction.urls")),
     path(route="accounts/", view=include("accounts.urls")),
     path(route="", view=include("portfolio.urls")),
     path(route="", view=include("blog.urls")),
+    re_path(r"^froala_editor/", include("froala_editor.urls")),
     # path(route="ckeditor/", view=include('ckeditor_uploader.urls')),
     # path('tinymce/',include('tinymce.urls')), # new
-    
 ]
 
 if settings.DEBUG:

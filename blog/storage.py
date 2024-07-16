@@ -5,7 +5,17 @@ from datetime import datetime
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
-path = "uploads/"+ str(datetime.now.year)+ "/"+ str(datetime.now.month)+ "/"+ str(datetime.now.day)+ "/"
+path = (
+    "uploads/"
+    + str(datetime.now.year)
+    + "/"
+    + str(datetime.now.month)
+    + "/"
+    + str(datetime.now.day)
+    + "/"
+)
+
+
 class CustomStorage(FileSystemStorage):
     location = os.path.join(
         settings.MEDIA_ROOT,

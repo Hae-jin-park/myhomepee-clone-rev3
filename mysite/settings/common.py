@@ -14,6 +14,7 @@ import os
 import pymysql
 from os.path import abspath, dirname
 import environ
+import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "django_bootstrap5",
     "django_extensions",
+    "froala_editor",
     # "ckeditor_uploader",
     # "ckeditor",
     # "tinymce",
@@ -175,3 +177,38 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+FROALA_EDITOR_PLUGINS = (
+    "align",
+    "char_counter",
+    "code_beautifier",
+    "code_view",
+    "colors",
+    "draggable",
+    "emoticons",
+    "entities",
+    "file",
+    "font_family",
+    "font_size",
+    "fullscreen",
+    "image_manager",
+    "image",
+    "inline_style",
+    "line_breaker",
+    "link",
+    "lists",
+    "paragraph_format",
+    "paragraph_style",
+    "quick_insert",
+    "quote",
+    "save",
+    "table",
+    "url",
+    "video",
+)
+FRAOLA_EDITOR_THIRD_PARTY = ("image_aviary", "spell_checker")
+
+FROALA_INCLUDE_JQUERY = False
+NOW_YEAR = str(datetime.datetime.now().year)
+NOW_MONTH = str(datetime.datetime.now().month)
+NOW_DAY = str(datetime.datetime.now().day)
+FROALA_UPLOAD_PATH = "uploads/" + NOW_YEAR + "/" + NOW_MONTH + "/" + NOW_DAY + "/"
